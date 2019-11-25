@@ -1,0 +1,29 @@
+ErrorDocument 404 /404.php
+AddDefaultCharset UTF-8
+Options All -Indexes
+
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE text/css
+
+RewriteEngine On
+
+RewriteRule ^note([0-9]+)$ /note.php?id=$1 [L]
+RewriteRule ^draft([0-9]+)$ /draft.php?id=$1 [L]
+RewriteRule ^page([0-9]+)$ /index.php?page=$1 [L]
+
+RewriteCond %{THE_REQUEST} \s(\S+)\.php
+RewriteRule ^ %1 [R=301,L]
+ 
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule (.*) $1.php [L]
+
+<FilesMatch ".(htaccess|ini|lang)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+<FilesMatch ".(jpg|jpeg|png|ico|gif|css)$">
+Header set Cache-Control "max-age=2592000"
+</FilesMatch>
