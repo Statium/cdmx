@@ -1,1 +1,1118 @@
+/* Служебные стили */
+html {
+overflow-y:scroll
+}
+* {
+margin:0;
+padding:0
+}
+:active, :hover, :focus {
+outline:0;
+outline-offset:0
+}
+body {
+background:url(/images/background.png) repeat fixed;
+font:13px Roboto, sans-serif
+}
+input, select, textarea {
+font:13px Roboto, sans-serif;
+color:#555;
+border-radius:2px
+}
+img {
+border:0
+}
+a {
+text-decoration:none
+}
+#editor {
+visibility:hidden;
+display:none
+}
+.clearfix:before,
+.clearfix:after {
+content:"";
+display:table
+}
+.clearfix:after {
+clear:both
+}
+.clearfix {
+zoom:1
+}
+.left {
+float:left
+}
+.right {
+float:right
+}
 
+/* nicedit стили */
+.nicedit-panelcontain {
+width:100%;
+border:1px solid #ddd;
+border-radius:2px 2px 0 0;
+overflow:hidden;
+box-sizing:border-box;
+background:#eee
+}
+.nicedit-pane {
+border:1px solid #ddd;
+overflow:hidden;
+padding:5px;
+text-align:left;
+background-color:#fff
+}
+.nicedit-panel {
+margin:0 2px;
+zoom:1;
+overflow:hidden
+}
+.nicedit-control {
+background:#eee;
+border:1px solid #eee;
+transition:.3s ease
+}
+.nicedit-main {
+width:100%;
+min-height:250px;
+font-size:15px;
+padding:5px;
+box-sizing:border-box
+}
+.nicedit-area {
+width:100%;
+border:1px solid #ddd;
+border-top:0;
+border-radius:0 0 2px 2px;
+box-sizing:border-box;
+overflow:hidden
+}
+.nicedit-selecttxt {
+width:66px;
+height:18px;
+float:left;
+line-height:18px;
+overflow:hidden;
+font-size:12px;
+user-select:none
+}
+.nicedit-input {
+width:192px;
+height:20px;
+float:left;
+margin:2px 0;
+padding:0 5px;
+border:1px solid #ddd;
+overflow:hidden
+}
+.nicedit-select {
+width:204px;
+height:22px;
+float:left;
+border:1px solid #ddd;
+margin:2px 0
+}
+.nicedit-textarea {
+width:338px;
+height:200px;
+float:left;
+border:1px solid #ddd;
+resize:vertical;
+margin:3px 0;
+padding:5px
+}
+.nicedit-submit {
+width:88px;
+height:22px;
+float:right;
+cursor:pointer;
+color:#888;
+border-radius:2px;
+-webkit-appearance:none;
+transition:.3s ease;
+background:#eee;
+border:1px solid #ccc;
+margin:3px 0;
+padding:2px 4px;
+clear:both
+}
+.nicedit-submit:hover {
+border:1px solid #ccc;
+background:#ddd;
+cursor:pointer;
+transition:.3s ease
+}
+
+/* Шаблон header.php */
+.header {
+width:100%;
+height:45px;
+position:fixed;
+top:0;
+left:0;
+z-index:100;
+background:#111;
+user-select:none
+}
+.center {
+min-width:345px;
+max-width:880px;
+padding:0 10px;
+height:45px;
+margin:0 auto
+}
+.logo {
+width:auto;
+height:44px;
+float:left;
+font:22px Verdana, sans-serif;
+color:#bbb;
+line-height:44px;
+cursor:pointer;
+transition:color .3s ease
+}
+.logo:hover {
+color:#ddd;
+transition:.3s ease
+}
+.navi {
+float:left;
+margin-left:20px
+}
+.navi a {
+line-height:45px;
+color:#bbb;
+margin-right:10px;
+transition:color .3s ease
+}
+.navi a:hover {
+color:#ddd;
+transition:.3s ease
+}
+.desc {
+float:right;
+line-height:45px;
+color:#bbb
+}
+
+/* Шаблон footer.php */
+.footer {
+min-width:325px;
+max-width:880px;
+height:16px;
+line-height:16px;
+margin:0 auto;
+padding:10px;
+user-select:none
+}
+
+/* Всплывающие подсказки */
+.hint, [data-hint] {
+position:relative;
+display:inline-block
+}
+.hint:before, .hint:after, [data-hint]:before, [data-hint]:after {
+position:absolute;
+visibility:hidden;
+opacity:0;
+z-index:1000000;
+pointer-events:none;
+transition:.3s ease
+}
+.hint:hover:before, .hint:hover:after, [data-hint]:hover:before, [data-hint]:hover:after {
+visibility:visible;
+opacity:1
+}
+.hint:before, [data-hint]:before {
+content:'';
+position:absolute;
+background:transparent;
+border:6px solid transparent;
+z-index:1000001
+}
+.hint:after, [data-hint]:after {
+content:attr(data-hint);
+background:#111;
+color:#bbb;
+padding:6px 8px;
+line-height:12px;
+white-space:nowrap;
+border-radius:3px
+}
+.hintbottom:before {
+border-bottom-color:#111
+}
+.hintleft:before {
+border-left-color:#111
+}
+.hintbottom:before {
+margin-top:-12px
+}
+.hintbottom:after {
+margin-left:-10px
+}
+.hintbottom:before, .hintbottom:after {
+top:100%;
+left:50%
+}
+.hintbottom:hover:before, .hintbottom:hover:after {
+-webkit-transform:translateY(8px);
+-moz-transform:translateY(8px);
+transform:translateY(8px)
+}
+.hintleft:before {
+margin:0 -12px -6px 0
+}
+.hintleft:after {
+margin-bottom:-12px
+}
+.hintleft:before, .hintleft:after {
+right:100%;
+bottom:50%
+}
+.hintleft:hover:before, .hintleft:hover:after {
+-webkit-transform:translateX(-8px);
+-moz-transform:translateX(-8px);
+transform:translateX(-8px)
+}
+
+/* Основные стили */
+.content {
+min-width:323px;
+max-width:900px;
+height:auto;
+margin:0 auto;
+padding-top:45px
+}
+*:first-child+html .content {
+padding-top:55px
+}
+.head {
+width:100%;
+margin-bottom:15px
+}
+.head h1 {
+width:70%;
+font-size:20px;
+float:left;
+overflow:hidden;
+display:block
+}
+.head h1 a {
+color:#111
+}
+.info {
+width:30%;
+height:24px;
+float:right;
+text-align:right;
+color:#888;
+line-height:24px;
+user-select:none
+}
+.dateinfo {
+float:right;
+padding-left:29px;
+background:url(/images/mainicon.png) no-repeat 0 37%
+}
+.commentinfo {
+float:right;
+padding-left:30px;
+margin-left:5px;
+background:url(/images/mainicon.png) no-repeat 0 1%
+}
+.visitinfo {
+float:right;
+padding-left:31px;
+margin-left:6px;
+background:url(/images/mainicon.png) no-repeat 0 70%
+}
+.text {
+font-size:15px;
+word-wrap:break-word
+}
+.static {
+word-wrap:break-word;
+font-size:15px;
+padding-bottom:10px
+}
+.box {
+min-width:323px;
+max-width:878px;
+height:auto;
+background:#fff;
+border:1px solid #ccc;
+border-radius:3px;
+margin-top:10px;
+padding:10px
+}
+.box img {
+max-width:100%
+}
+.text a, .static a, .nicedit-main a {
+transition:color .3s ease;
+color:#523dca
+}
+.text a:hover, .static a:hover {
+transition:.3s ease;
+color:#7057ff
+}
+.code {
+max-width:856px;
+background:#eee;
+border:1px solid #ddd;
+border-radius:2px;
+color:#126512;
+margin:5px 0 3px;
+padding:10px;
+white-space:pre-wrap;
+white-space:-moz-pre-wrap;
+white-space:-pre-wrap;
+white-space:-o-pre-wrap;
+word-wrap:break-word
+}
+ol, ul {
+margin:0;
+padding:0;
+padding-left:30px
+}
+.func {
+max-width:878px;
+height:15px;
+padding:15px 0 5px;
+user-select:none
+}
+.tags {
+max-width:634px;
+height:15px;
+float:left;
+line-height:15px;
+color:#888;
+white-space:nowrap;
+overflow:hidden;
+padding-left:24px;
+background:url(/images/tags.png) no-repeat 0 46%
+}
+.links {
+width:230px;
+height:15px;
+line-height:15px;
+float:right
+}
+.more {
+width:20px;
+height:15px;
+float:right;
+background:url(/images/mainicon.png) no-repeat -4px 93%;
+margin-left:15px;
+border:0;
+cursor:pointer
+}
+.cleanbutton {
+color:#888;
+background:none;
+padding:0;
+float:right;
+border:0;
+-webkit-appearance:none;
+text-align:right;
+margin-left:10px;
+transition:color .3s ease
+}
+.cleanbutton:hover {
+color:#000;
+cursor:pointer;
+transition:.3s ease
+}
+.pagelink {
+border:1px solid #ccc;
+color:#888;
+margin-right:3px;
+padding:3px 8px;
+border-radius:2px;
+transition:background .3s ease
+}
+.pagelink:hover {
+background:#eee;
+transition:.3s ease
+}
+.pagelinkact {
+border:1px solid #aaa;
+color:#fff;
+background:#bbb;
+margin-right:3px;
+padding:3px 8px;
+border-radius:2px
+}
+
+/* Стили кнопок */
+.lightbutton {
+width:110px;
+height:26px;
+float:right;
+border:1px solid #ccc;
+margin-left:5px;
+background:#eee;
+padding:0;
+cursor:pointer;
+-webkit-appearance:none;
+color:#888;
+transition:background .3s ease
+}
+.lightbutton:hover {
+border:1px solid #ccc;
+background:#ddd;
+padding:0;
+margin-left:5px;
+cursor:pointer;
+transition:.3s ease
+}
+.blackbutton {
+width:110px;
+height:26px;
+float:right;
+border:0;
+background:#333;
+padding:0;
+cursor:pointer;
+-webkit-appearance:none;
+color:#bbb;
+transition:background .3s ease
+}
+.blackbutton:hover {
+border:0;
+background:#4e4e4e;
+padding:0;
+cursor:pointer;
+transition:.3s ease
+}
+.ubutton {
+width:130px;
+height:26px;
+line-height:26px;
+text-align:center;
+float:right;
+display:inline-block;
+border:0;
+background:#333;
+padding:0;
+margin:2px;
+cursor:pointer;
+-webkit-appearance:none;
+color:#bbb;
+transition:background .3s ease
+}
+.ubutton:hover {
+border:0;
+background:#4e4e4e;
+padding:0;
+cursor:pointer;
+transition:.3s ease
+}
+
+/* Форма добавления комментария note.php */
+.boxcomment {
+min-width:323px;
+max-width:878px;
+height:auto;
+line-height:30px;
+background:#fff;
+border:1px solid #ccc;
+border-radius:3px;
+margin-top:10px;
+padding:0 10px;
+user-select:none
+}
+.linkcomment {
+width:100%;
+transition:color .3s ease;
+display:block;
+cursor:pointer;
+color:#523dca
+}
+.linkcomment:hover {
+transition:.3s ease;
+color:#7057ff
+}
+.headcomment {
+width:50%;
+float:left;
+color:#000;
+font-weight:bold
+}
+.addcomment {
+width:50%;
+float:right;
+text-align:right
+}
+.formcomment {
+width:100%;
+height:auto;
+display:none
+}
+.nickcomment {
+width:100%;
+height:24px;
+line-height:22px;
+box-sizing:border-box;
+padding:0 5px;
+margin:10px 0;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.textcomment {
+width:100%;
+height:100px;
+box-sizing:border-box;
+vertical-align:top;
+padding:5px;
+resize:none;
+overflow:auto;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.footercomment {
+width:100%;
+height:40px
+}
+.charcount {
+width:40%;
+height:26px;
+float:left;
+margin:10px 0;
+line-height:26px;
+color:#888;
+user-select:none
+}
+.buttoncomment {
+width:60%;
+height:26px;
+float:right;
+margin:10px 0
+}
+
+/* Блок комментариев note.php */
+.headercomment {
+width:100%;
+margin-bottom:5px
+}
+.titlecomment {
+width:60%;
+height:20px;
+float:left;
+font-size:15px;
+line-height:20px
+}
+.datecomment {
+width:40%;
+height:20px;
+float:right;
+text-align:right;
+color:#888;
+line-height:20px;
+user-select:none
+}
+.editarea {
+width:100%;
+height:auto;
+box-sizing:border-box;
+vertical-align:top;
+padding:5px;
+resize:none;
+overflow:auto;
+-webkit-appearance:none;
+border:1px solid #ddd;
+font-size:15px
+}
+.funccomment {
+width:100%;
+height:15px;
+margin-top:5px;
+user-select:none
+}
+.navipage {
+min-width:323px;
+max-width:898px;
+height:30px;
+text-align:center;
+color:#888;
+line-height:30px;
+cursor:pointer;
+margin-top:10px;
+background:#fff;
+border:1px solid #ccc;
+border-radius:3px;
+transition:background .3s ease;
+user-select:none
+}
+.navipage:hover {
+background:#e4e4e4;
+transition:.3s ease
+}
+
+/* Панель управления */
+.added {
+height:26px;
+line-height:26px;
+display:none;
+margin:0 10px;
+color:#dc4747
+}
+.fieldtitle {
+width:100%;
+height:24px;
+box-sizing:border-box;
+line-height:22px;
+padding:0 5px;
+margin-bottom:10px;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.fieldtags {
+width:100%;
+height:24px;
+box-sizing:border-box;
+line-height:22px;
+padding:0 5px;
+margin:10px 0;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.adminform {
+width:200px;
+height:24px;
+line-height:22px;
+border-radius:2px;
+-webkit-appearance:none;
+border:1px solid #ddd;
+padding:0 5px
+}
+.adminlogin {
+margin-top:10px
+}
+.adminfooter {
+width:100%;
+margin-top:10px;
+float:left
+}
+.login {
+width:110px;
+float:left
+}
+.adminnote {
+max-width:866px;
+border:1px solid #ddd;
+border-radius:2px;
+background:#eee;
+padding:5px;
+color:#525252;
+user-select:none
+}
+.moderate {
+max-width:878px;
+height:150px;
+line-height:150px;
+text-align:center;
+margin-top:10px;
+color:#b5b5b5
+}
+
+/* Навигация панели управления */
+.navibox {
+min-width:323px;
+max-width:878px;
+line-height:30px;
+background:#fff;
+border:1px solid #ccc;
+border-radius:3px;
+margin-top:10px;
+padding:0 10px;
+color:#777;
+user-select:none
+}
+.naviboxlink {
+color:#523dca;
+transition:color .3s ease
+}
+.naviboxlink:hover {
+color:#7057ff;
+transition:.3s ease
+}
+.adminlink {
+color:#777;
+margin-right:2px;
+border:1px solid #fff;
+border-radius:3px;
+padding:2px 5px;
+transition:.3s ease
+}
+.adminlink:hover {
+margin-right:2px;
+border:1px solid #ddd;
+border-radius:3px;
+padding:2px 5px;
+background:#f5f4f4;
+transition:.3s ease
+}
+a.act {
+border:1px solid #d2d2d2;
+transition:none;
+background:#ddd
+}
+a.act:hover {
+border:1px solid #d2d2d2;
+transition:none;
+background:#ddd
+}
+.admincount {
+color:#fff;
+background:#fb7878;
+padding:0px 4px;
+font-size:10px;
+text-align:center;
+height:11px;
+line-height:11px;
+border-radius:10px;
+position:relative;
+top:-1px
+}
+
+/* Панель управления -> Основное */
+.linkone {
+width:14%;
+height:75px;
+float:left;
+font-size:15px;
+cursor:pointer;
+margin:20px 3% 10px;
+transition:background .3s ease;
+user-select:none
+}
+.linkone:hover {
+background:#eee;
+transition:.3s ease
+}
+.labelindex {
+width:100px;
+height:0;
+margin:0 auto;
+text-align:center;
+color:#bbb;
+padding-top:55px;
+background:url(/images/adminicon.png) no-repeat 50% -60px;
+cursor:pointer
+}
+.labelnew {
+width:100px;
+height:0;
+margin:0 auto;
+text-align:center;
+color:#bbb;
+padding-top:55px;
+background:url(/images/adminicon.png) no-repeat 50% -176px;
+cursor:pointer
+}
+.labelcomm {
+width:100px;
+height:0;
+margin:0 auto;
+text-align:center;
+color:#bbb;
+padding-top:55px;
+background:url(/images/adminicon.png) no-repeat 50% 0px;
+cursor:pointer
+}
+.labelsettings {
+width:100px;
+height:0;
+margin:0 auto;
+text-align:center;
+color:#bbb;
+padding-top:55px;
+background:url(/images/adminicon.png) no-repeat 50% -234px;
+cursor:pointer
+}
+.labellogout {
+width:100px;
+height:0;
+margin:0 auto;
+text-align:center;
+color:#bbb;
+padding-top:55px;
+background:url(/images/adminicon.png) no-repeat 50% -118px;
+cursor:pointer
+}
+.countone {
+width:20%;
+height:60px;
+float:left;
+font-size:15px;
+margin:20px 0 10px;
+user-select:none
+}
+.count {
+font-size:30px;
+text-align:center
+}
+.label {
+text-align:center;
+color:#bbb
+}
+
+/* Панель управления -> Комментарии и черновики */
+.moderatetitle {
+width:75%;
+float:left;
+line-height:20px;
+font-size:14px
+}
+.draftdate {
+width:25%;
+height:20px;
+float:right;
+line-height:20px;
+color:#888;
+text-align:right
+}
+.clabel {
+padding-left:5px;
+display:inline-block
+}
+.dotted {
+border-bottom:1px dotted gray
+}
+.moderatelink {
+font-weight:bold;
+color:#000
+}
+.isnull {
+font-style:italic;
+color:#525252
+}
+.check {
+background:#fffacf
+}
+.new {
+color:red;
+font-size:11px;
+margin-left:5px;
+vertical-align:middle
+}
+
+/* Панель управления -> Файлы */
+.filelink {
+color:#523dca;
+transition:color .3s ease
+}
+.filelink:hover {
+color:#7057ff;
+transition:.3s ease
+}
+.inputfile {
+display:none
+}
+.success {
+display:none;
+float:right;
+color:#03af5e
+}
+
+/* Панель управления -> Настройки */
+.setting {
+height:auto;
+margin-bottom:10px
+}
+.settingname {
+width:34%;
+float:left;
+padding-top:5px;
+color:#888
+}
+.settinginput {
+width:57%;
+float:right
+}
+.field {
+width:100%;
+height:24px;
+float:right;
+line-height:22px;
+padding:0 5px;
+margin-top:5px;
+box-sizing:border-box;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.select {
+width:100%;
+height:26px;
+float:right;
+box-sizing:border-box;
+margin-top:5px;
+border:1px solid #ddd
+}
+.area {
+width:100%;
+height:70px;
+float:right;
+padding:5px;
+margin-top:5px;
+box-sizing:border-box;
+-webkit-appearance:none;
+border:1px solid #ddd;
+resize:none
+}
+.minfield {
+width:130px;
+height:24px;
+line-height:22px;
+padding:0 5px;
+margin:5px 10px 0 0;
+box-sizing:border-box;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.minselect {
+width:130px;
+height:26px;
+box-sizing:border-box;
+margin-top:5px;
+border:1px solid #ddd
+}
+.adminfield {
+width:200px;
+height:24px;
+line-height:22px;
+padding:0 5px;
+margin:5px 10px 0 0;
+box-sizing:border-box;
+-webkit-appearance:none;
+border:1px solid #ddd
+}
+.saved {
+height:26px;
+line-height:26px;
+margin:0 5px 0 10px
+}
+.done {
+color:#03af5e
+}
+.loginform {
+height:26px;
+line-height:26px;
+display:none;
+float:left;
+margin:10px 0 0 10px;
+color:#dc4747
+}
+.error {
+color:#dc4747
+}
+.indent {
+margin-top:10px;
+margin-left:0 !important
+}
+
+/* Резиновый дизайн */
+@media (max-width: 800px) {
+.charcount {
+display:none
+}
+}
+@media (max-width: 770px) {
+.buttoncomment {
+width:100%
+}
+}
+@media (max-width: 750px) {
+.desc, .tags {
+display:none
+}
+.links {
+width:100%
+}
+}
+@media (max-width: 700px) {
+.visitinfo {
+display:none
+}
+.linkone:nth-child(6) {
+display:none
+}
+.linkone {
+width:19%
+}
+.countone:nth-child(6) {
+display:none
+}
+.countone {
+width:25%
+}
+.ubutton {
+float:left;
+margin-top:10px
+}
+.filenote {
+width:100%
+}
+}
+@media (max-width: 620px) {
+.added {
+display:none
+}
+}
+@media (max-width: 600px) {
+.settinginput label {
+display:none
+}
+.linkone:nth-child(5) {
+display:none
+}
+.linkone {
+width:27.3%
+}
+.countone:nth-child(5) {
+display:none
+}
+.countone {
+width:33%
+}
+}
+@media (max-width: 500px) {
+.navi a:nth-child(3) {
+display:none
+}
+.datecomment, .commentinfo {
+display:none
+}
+.settingname, .minselect, .minfield, .adminfield {
+width:100%
+}
+.settinginput {
+width:100%;
+margin-bottom:10px
+}
+}
+@media (max-width: 430px) {
+.linkone:nth-child(4) {
+display:none
+}
+.linkone {
+width:44%
+}
+.countone:nth-child(3) {
+display:none
+}
+.countone {
+width:50%
+}
+}
+@media (max-width: 400px) {
+.draftdate, .info {
+display:none
+}
+.moderatetitle, .titlenote, .head h1 {
+width:100%
+}
+}
